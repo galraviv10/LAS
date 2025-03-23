@@ -1,0 +1,47 @@
+training:
+  data_path: "/home/galraviv/input_training_file.txt"
+  batch_size: 1
+  epochs: 1
+  num_gpus: 1
+  num_workers: 64
+  input_dim: 80
+  hidden_dim: 256
+  vocab_size: 30522
+  num_lstm_layers: 4
+  projection_dim: 256
+  channels: 32
+  learning_rate: 0.001
+  teacher_forcing: True
+  checkpoint: '.trash_check'
+
+validation:
+  data_path: "/home/galraviv/input_validation_file.txt"
+
+test:
+  data_path: "/home/galraviv/test_file.txt"
+  batch_size: 1
+
+wandb:
+  project_name: "LAS_Model_Testing"
+  entity: "gal-raviv10"
+
+audio_processing:
+  seed: 1234
+  segment_size: 380000
+  n_fft: 1024
+  num_mels: 80
+  hop_size: 256
+  win_size: 1024
+  sampling_rate: 16000
+  fmin: 0
+  fmax: 8000
+  must_divide: 4
+  max_len_tokens: 60
+  aug_output_dir: '/home/galraviv/scaler_gan/scaler_gan/output/trained_models_libri_100_clean_scalergan/inference_scaler_gan_Mar_21_22_07_44/artifacts/mels_npy/'
+  additional_output_dir: '/home/galraviv/scaler_gan/scaler_gan/scaler_gan/output/trained_models_libri_100_clean_scalergan/inference_scaler_gan_Mar_21_15_42_25/artifacts/mels_npy/'
+  target_length: 1484
+
+inference:
+  checkpoint: '/home/galraviv/scaler_gan/scaler_gan/LAS_model/specAug_n/epoch=69-step=12460.ckpt'
+  #'/home/galraviv/scaler_gan/scaler_gan/LAS_model/checkpoints_scalerGan/epoch=59-step=10680.ckpt'
+#"/home/galraviv/scaler_gan/scaler_gan/LAS_model/checkpoints/epoch=14-step=330.ckpt"
